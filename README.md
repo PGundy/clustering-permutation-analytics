@@ -1,2 +1,2 @@
-# clustering-permutation-analytics
- 
+# clustering analytics
+ demonstration of clustering permutation
