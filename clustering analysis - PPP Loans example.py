@@ -447,3 +447,33 @@ fig3c = (
 fig3c
 
 # %%
+fig3d = (
+    df_calc_viz[
+        (
+            (df_calc_viz["loan_count"] >= 500)
+            & (df_calc_viz["avg_cost_per_job"] < 13500)
+            & (df_calc_viz["jobs_reported_total"] >= 10000)
+            & df_calc_viz["depth"].isin(["2", "3"])
+            & (df_calc_viz.grouped_clean.str.contains("state: CA"))
+        )
+    ]
+    .sort_values("depth", ascending=False)
+    .pipe(
+        lambda df: px.scatter(
+            data_frame=df,
+            title=(
+                "Only CA - Relationship b/w Cost of Saved Jobs & Number of Saved Jobs"
+                + "<br>Scaled by total loan amount"
+            ),
+            x="jobs_reported_avg",
+            y="avg_cost_per_job",
+            size="loan_total",
+            color="grouped_vars",
+            hover_name="grouped_clean",
+        )
+    )
+)
+
+fig3d
+
+# %%
