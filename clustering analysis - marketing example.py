@@ -1,6 +1,6 @@
 #%%
-import itertools
 import os
+import shutil
 import sys
 
 import numpy as np
@@ -9,12 +9,15 @@ import plotly.express as px
 
 # %%
 
-
-sys.path.insert(0, "/Users/philipgundy/projects/_python//Python-Functions")
-
-from alpha_numeric_ordered_permutations import (
-    alpha_numeric_ordered_permutation,
+### The below process enables autocomplete on 'ComboAnalysis'
+src_path = (
+    "/Users/philipgundy/projects/_python/Python-Functions/ComboAnalysis.py"
 )
+dst_path = os.getcwd()
+shutil.copy(src_path, dst_path)
+print("Copied")
+
+from ComboAnalysis import ComboAnalysis
 
 # %%
 ##############################
